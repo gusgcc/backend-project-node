@@ -7,7 +7,8 @@ function jwt () {
     return expressJwt({ secret })
         .unless({
             path: [//las rutas que no estan protegidas
-                "/usuarios"
+                "/usuarios",
+                "/"
             ]
         })
 }
