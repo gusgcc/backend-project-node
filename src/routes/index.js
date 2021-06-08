@@ -5,6 +5,7 @@ const router = express.Router();
 const user = require("../controllers/userController")
 //las rutas de nuestro aplicacion web
 module.exports = app => {
+    router.get('/', (req,res)=>{res.send('SERVER OK')})
     //user
     router.post("/usuarios", user.register)//para registrarse
     router.get("/usuarios", user.login) //para iniciar sesion
