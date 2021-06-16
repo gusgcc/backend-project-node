@@ -13,7 +13,8 @@ userService.crearUsuario = async (CrearUsuarioModel) => {//recibe los datos corr
             apellidos: CrearUsuarioModel.apellidos,
             telefono: CrearUsuarioModel.telefono,
             email: CrearUsuarioModel.email,
-            password: CrearUsuarioModel.password
+            password: CrearUsuarioModel.password,
+            tipo:CrearUsuarioModel.tipo
         })
         newUser.password = await newUser.encryptPassword(CrearUsuarioModel.password)
         await newUser.save()
