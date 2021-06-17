@@ -74,16 +74,31 @@ publicacionService.actualizar = async function (ActualizarUsuarioModel) {
     //let {email, password, id, _id, ...resto } = ActualizarUsuarioModel;//retiramos los campos que no se pueden cambiar
     console.log("datos a guardar ", ActualizarUsuarioModel);
     var id = mongoose.Types.ObjectId(ActualizarUsuarioModel.id);
-    const publicacion = await Publicacion.findByIdAndUpdate(id ,{titulo:ActualizarUsuarioModel.titulo,
+    const publicacion = await Publicacion.findByIdAndUpdate({"_id":id} ,{titulo:ActualizarUsuarioModel.titulo,
                                                                         subtitulo:ActualizarUsuarioModel.subtitulo,
                                                                         descripcion:ActualizarUsuarioModel.descripcion} )
     if (publicacion) {//si existe el usario. ¿si tiene token entonces si existe el usuario???
         //luego de actualizar devuelve user que esl doc sin modificar
         //por eso llamamos a traer perfil que devuelve un json o null
-        return await this.traerPublicacionId(ActualizarUsuarioModel.id)
+        return await this.traerPublicacion(req.user.id)
     }
     else {
         false
     }
+}
+
+publicacionService.eliminar= async (id)=>{
+    //console.log("datos a guardar ", id);
+    var id = mongoose.Types.ObjectId(id);
+    const publicacion = await Publicacion.findByIdAndDelete({"_id":id}  )
+    if (publicacion) {//si existe el usario. ¿si tiene token entonces si existe el usuario???
+        //luego de actualizar devuelve user que esl doc sin modificar
+        //por eso llamamos a traer perfil que devuelve un json o null
+        return true //await this.traerPublicacionId(req.user.id)
+    }
+    else {
+        false
+    }
+
 }
 module.exports = publicacionService;

@@ -74,13 +74,18 @@ ctrl.actualizar = async (req, res) => {//para actualizar los datos del usuario
         console.log(error)
         res.status(500).json({ mensaje: "Ocurrio un erro en el servidor" })
     }
-    /*
-    if (req.params.id.toString() == req.user.id) {//si coincide el id del token , con el parametro
-            
+   
+}
+ctrl.eliminar = async (req, res) => {//para actualizar los datos del usuario
+    try {                              
+        let resActualizar = await PublicacionService.eliminar(req.params.id)
+        if (resActualizar) {
+            res.status(500).json({ mensaje: "Publicacion eliminada de forma correcta" })
+        }
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ mensaje: "Ocurrio un erro en el servidor" })
     }
-    else {
-        //el id del parametro no coincide con el del token
-        res.status(401).json({ mensaje: "No tienes acceso" })
-    }*/
+   
 }
 module.exports = ctrl;

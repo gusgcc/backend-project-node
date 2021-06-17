@@ -18,6 +18,7 @@ module.exports = app => {
     router.get("/publicacion/:id",publicacion.mostrarPublicacion)// muestra todas las publicaciones por Usuario
     router.get("/publicacione/:idPublicacion",publicacion.mostrarPublicacionId)//muestra publicacion por Id
     router.put("/publicacion",publicacion.actualizar)//actualizar el posteo
+    router.delete("/publicacion/:id",publicacion.eliminar)//eliminar publicacion
 
 
     app.use(router) //
