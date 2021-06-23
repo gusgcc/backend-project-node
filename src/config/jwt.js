@@ -8,7 +8,8 @@ function jwt () {
         .unless({
             path: [//las rutas que no estan protegidas
                 "/usuarios",
-                "/"
+                "/",
+                "/usuarioslogin"
             ]
         })
 }
