@@ -9,7 +9,7 @@ module.exports = app => {
     router.get('/', (req,res)=>{res.send('SERVER OK')})
     //user
     router.post("/usuarios",  user.register)//para registrarse
-    router.get("/usuarios", user.login) //para iniciar sesion
+    router.post("/usuarioslogin", user.login) //para iniciar sesion
     router.get("/usuarios/:id", user.perfil)//obtine los datos del usuario :id (aunque realmente del token)
     router.put("/usuarios/:id", user.actualizar)//actualiza los datos del usuario :id (pero usa el dato del token)
 
