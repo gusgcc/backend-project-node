@@ -80,7 +80,7 @@ ctrl.eliminar = async (req, res) => {//para actualizar los datos del usuario
     try {                              
         let resActualizar = await PublicacionService.eliminar(req.params.id)
         if (resActualizar) {
-            res.status(500).json({ mensaje: "Publicacion eliminada de forma correcta" })
+            res.status(200).json({ mensaje: "Publicacion eliminada de forma correcta" })
         }
     } catch (error) {
         console.log(error)
