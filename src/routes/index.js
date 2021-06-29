@@ -24,6 +24,7 @@ module.exports = app => {
 
     // APIs de publicacion para empleado
     router.get("/publicacion", publicacion.listarPublicaciones) // devuelve todas las publicaciones para que las vea un empleado
+    router.get("/buscarPublicacion/:buscador",publicacion.buscadorPublicaciones)// devuelve los resultados de la busqueda
 
 
     app.use(router) //

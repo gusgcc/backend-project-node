@@ -98,5 +98,15 @@ ctrl.listarPublicaciones = async (req, res) => { // listar las publicaciones par
         res.status(500).json({ mensaje: "Ocurrio un erro en el servidor" })
     }
 }
+ctrl.buscadorPublicaciones = async (req, res) => { // listar las publicaciones para que las vean los empleados
+    try {      
+        console.log("Palabra a buscar",req.params)                       
+        let listaPublicaciones = await PublicacionService.buscadorPublicaciones(req.params.buscador)
+        res.status(200).json({data: listaPublicaciones})
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ mensaje: "Ocurrio un erro en el servidor" })
+    }
+}
 
 module.exports = ctrl;

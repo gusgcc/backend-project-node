@@ -107,5 +107,19 @@ publicacionService.listarPublicaciones = async () => {
     return await Publicacion.find({})
 }
 
+publicacionService.buscadorPublicaciones= async(buscadorPalabra)=>{
+      
+        try {
+            let buscador = new RegExp(`${buscadorPalabra}`, 'i');
+            //console.log(buscadorPalabra);
+            let publicacion= Publicacion.find({"titulo":buscador})  ; 
+        
+            return publicacion;
+        } catch (error) {
+            return null;
+        }
+}
+
+
 
 module.exports = publicacionService;
