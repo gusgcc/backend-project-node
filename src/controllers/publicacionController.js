@@ -88,4 +88,15 @@ ctrl.eliminar = async (req, res) => {//para actualizar los datos del usuario
     }
    
 }
+
+ctrl.listarPublicaciones = async (req, res) => { // listar las publicaciones para que las vean los empleados
+    try {                              
+        let listaPublicaciones = await PublicacionService.listarPublicaciones()
+        res.status(200).json({data: listaPublicaciones})
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ mensaje: "Ocurrio un erro en el servidor" })
+    }
+}
+
 module.exports = ctrl;

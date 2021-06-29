@@ -101,4 +101,11 @@ publicacionService.eliminar= async (id)=>{
     }
 
 }
+
+publicacionService.listarPublicaciones = async () => {
+
+    return await Publicacion.find({})
+}
+
+
 module.exports = publicacionService;

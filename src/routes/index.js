@@ -13,12 +13,17 @@ module.exports = app => {
     router.get("/usuarios/:id", user.perfil)//obtine los datos del usuario :id (aunque realmente del token)
     router.put("/usuarios/:id", user.actualizar)//actualiza los datos del usuario :id (pero usa el dato del token)
 
+    // APIs de publicacion para empleador
+
     //Publicacion
     router.post("/publicacion",publicacion.crearPublicacion)// para crear la publicacion
     router.get("/publicacion/:id",publicacion.mostrarPublicacion)// muestra todas las publicaciones por Usuario
     router.get("/publicacione/:idPublicacion",publicacion.mostrarPublicacionId)//muestra publicacion por Id
     router.put("/publicacion",publicacion.actualizar)//actualizar el posteo
     router.delete("/publicacion/:id",publicacion.eliminar)//eliminar publicacion
+
+    // APIs de publicacion para empleado
+    router.get("/publicacion", publicacion.listarPublicaciones) // devuelve todas las publicaciones para que las vea un empleado
 
 
     app.use(router) //
