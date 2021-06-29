@@ -50,9 +50,9 @@ userService.generarToken = async (IniciarSesionModel) => {
                 expiresIn: "100 min",
             }
         )
-        let { id, email } = user
+        let { id, nombres, apellidos, telefono, email, tipo } = user
         return {//retornamos un json con los valores que importan
-            id, email, token
+            id, nombres, apellidos, telefono, email, tipo, token
         }
     } else {
         return false;//es decir no coincide la contraseña o user no existe
