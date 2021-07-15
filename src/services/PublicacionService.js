@@ -69,7 +69,7 @@ publicacionService.traerPublicacionId = async (idPosteado) => {
     }
 }*/
 //metodo actualizar los datos del usario, recibe los datos a actualizar , y el id del usuario proveniente del token
-publicacionService.actualizar = async function (ActualizarUsuarioModel) {
+publicacionService.actualizar = async function (ActualizarUsuarioModel,req) {
     //console.log("datos a actualizar ", ActualizarUsuarioModel)
     //let {email, password, id, _id, ...resto } = ActualizarUsuarioModel;//retiramos los campos que no se pueden cambiar
     console.log("datos a guardar ", ActualizarUsuarioModel);

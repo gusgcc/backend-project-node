@@ -19,7 +19,7 @@ module.exports = app => {
     router.post("/publicacion",publicacion.crearPublicacion)// para crear la publicacion
     router.get("/publicacion/:id",publicacion.mostrarPublicacion)// muestra todas las publicaciones por Usuario
     router.get("/publicacione/:idPublicacion",publicacion.mostrarPublicacionId)//muestra publicacion por Id
-    router.put("/publicacion",publicacion.actualizar)//actualizar el posteo
+    router.put("/publicacion",publicacion.actualizarPublicacion)//actualizar el posteo
     router.delete("/publicacion/:id",publicacion.eliminar)//eliminar publicacion
 
     // APIs de publicacion para empleado

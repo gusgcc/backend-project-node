@@ -64,9 +64,9 @@ ctrl.mostrarPublicacionId = async (req, res) => {//Devuele datos del perfil
         }
    
 }
-ctrl.actualizar = async (req, res) => {//para actualizar los datos del usuario
+ctrl.actualizarPublicacion = async (req, res) => {//para actualizar los datos del usuario
     try {                              
-        let resActualizar = await PublicacionService.actualizar(req.body)
+        let resActualizar = await PublicacionService.actualizar(req.body,req)
         if (resActualizar) {
             res.status(200).json(resActualizar)
         }
