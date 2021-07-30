@@ -4,6 +4,8 @@ const router = express.Router();
 
 const user = require("../controllers/userController")
 const publicacion= require("../controllers/publicacionController")
+const postulacion = require("../controllers/PostulacionController")
+
 //las rutas de nuestro aplicacion web
 module.exports = app => {
     router.get('/', (req,res)=>{res.send('SERVER OK')})
@@ -21,6 +23,9 @@ module.exports = app => {
     router.get("/publicacione/:idPublicacion",publicacion.mostrarPublicacionId)//muestra publicacion por Id
     router.put("/publicacion",publicacion.actualizarPublicacion)//actualizar el posteo
     router.delete("/publicacion/:id",publicacion.eliminar)//eliminar publicacion
+
+    //Postulacion
+    router.post("/registrarPostulacion",  postulacion.crearPostulacion)//para registrarse
 
     // APIs de publicacion para empleado
     router.get("/publicacion", publicacion.listarPublicaciones) // devuelve todas las publicaciones para que las vea un empleado
