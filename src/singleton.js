@@ -1,4 +1,5 @@
 const mongoose = require("mongoose")
+//Implementando Singleton
 class PrivateSingleton {
     constructor() {
         //this.message = 'I am an instance';
