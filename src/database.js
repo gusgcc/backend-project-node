@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+/*const mongoose = require("mongoose")
 
 
 mongoose.connect(process.env.MONGODB_URI, {
@@ -8,4 +8,6 @@ var db = mongoose.connection;
 db.on("error", console.error.bind(console, "error al conectar bd"));
 db.once("open", function () {
     console.log("bd conectada")
-})
+})*/
+const Singleton = require('./Singleton');
+const object = Singleton.getInstance();
