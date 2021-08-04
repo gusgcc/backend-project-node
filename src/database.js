@@ -9,5 +9,5 @@ db.on("error", console.error.bind(console, "error al conectar bd"));
 db.once("open", function () {
     console.log("bd conectada")
 })*/
-const Singleton = require('./Singleton');
+const Singleton = require('./singleton');
 const object = Singleton.getInstance();
