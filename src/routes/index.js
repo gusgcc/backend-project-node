@@ -27,5 +27,6 @@ module.exports = app => {
     router.get("/buscarPublicacion/:buscador",publicacion.buscadorPublicaciones)// devuelve los resultados de la busqueda
 
 
-    app.use(router) //
+    app.use(router) //modificacion
+    
 }
