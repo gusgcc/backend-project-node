@@ -32,6 +32,9 @@ module.exports = app => {
     router.get("/buscarPublicacion/:buscador",publicacion.buscadorPublicaciones)// devuelve los resultados de la busqueda
 
 
+    router.get("/mispostulaciones/:idEmpleado",postulacion.verMisPostulaciones)// devuelve del empleado
+
+
     app.use(router) //modificacion
     
 }
