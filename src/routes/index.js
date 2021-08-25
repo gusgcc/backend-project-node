@@ -26,6 +26,7 @@ module.exports = app => {
 
     //Postulacion
     router.post("/registrarPostulacion",  postulacion.crearPostulacion)// probando...
+    router.get("/postulantes/:idPublicacion", postulacion.postulantesPorPublicacion) // trayendo datos de postulantes por publicacion FE
 
     // APIs de publicacion para empleado
     router.get("/publicacion", publicacion.listarPublicaciones) // devuelve todas las publicaciones para que las vea un empleado
@@ -34,6 +35,8 @@ module.exports = app => {
 
     router.get("/mispostulaciones/:idEmpleado",postulacion.verMisPostulaciones)// devuelve del empleado
 
+    // Estado
+    //router.post("/registrarEstado/:idPostulante", )// para crear la publicacion
 
     app.use(router) //modificacion
     

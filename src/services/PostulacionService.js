@@ -2,6 +2,7 @@ const postulacionService = {}
 var mongoose = require('mongoose')
 const Postulacion = require("../models/modelosBD/Postulacion")
 const PublicacionService= require("../services/PublicacionService")
+const UserService = require("../services/UserService")
 
 postulacionService.crearPostulacion = async (crearPostulacionModel) => {
     const newPostulacion = new Postulacion({
@@ -9,7 +10,8 @@ postulacionService.crearPostulacion = async (crearPostulacionModel) => {
         idPublicacion: crearPostulacionModel.idPublicacion,
         rangoSalarial: crearPostulacionModel.rangoSalarial,
         comentario: crearPostulacionModel.comentario,
-        disponibilidad: crearPostulacionModel.disponibilidad
+        disponibilidad: crearPostulacionModel.disponibilidad,
+        idEmpleado: crearPostulacionModel.idEmpleado
     })
 
     await newPostulacion.save();
@@ -39,5 +41,16 @@ postulacionService.traerPostulaciones= async(idPostulante)=>{
     }
 }
 
+postulacionService.traerPostulantes = async (idPublicacion) => {
+    try {
+            let postulaciones = await Postulacion.find({idPublicacion: idPublicacion}).populate('idEmpleado', {password: 0, tipo: 0, _id: 0});
+            //console.log(postulaciones[0].rangoSalarial);
+            return postulaciones;
+
+    } catch (error) {
+        console.log(error);
+        return null;
+    }
+}
 
 module.exports = postulacionService;

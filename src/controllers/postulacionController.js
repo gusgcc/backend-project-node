@@ -37,4 +37,16 @@ ctrl.verMisPostulaciones= async (req, res)=>{
     }
 }
 
+ctrl.postulantesPorPublicacion = async (req, res) => {
+    try {
+            let postulantes = await postulacionService.traerPostulantes(req.params.idPublicacion);
+
+            if(postulantes){
+                res.status(200).json({data: postulantes});
+            }
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 module.exports = ctrl;

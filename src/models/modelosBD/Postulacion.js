@@ -7,10 +7,11 @@ const postulacionSchema = new Schema ({
     idPublicacion: String,
     rangoSalarial: String,
     comentario: String,
-    disponibilidad: String
-    /* idEmpleador: {
-        type: mongoose.Types.ObjectId
-    } */
+    disponibilidad: String,
+    idEmpleado: {
+        type: mongoose.Types.ObjectId,
+        ref: "User"
+    }
 
 });
 

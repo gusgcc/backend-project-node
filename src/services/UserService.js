@@ -70,7 +70,8 @@ userService.actualizar = async function (ActualizarUsuarioModel, userId) {
         return await this.traerPerfil(userId)
     }
     else {
-        false
+        return false
     }
 }
+
 module.exports = userService;
